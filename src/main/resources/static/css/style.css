@@ -1,0 +1,471 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #e6f0fa;
+  color: #333;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* ===== TOP NAVBAR ===== */
+header {
+  background-color: #004080;
+  color: #ffffff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #0077cc;
+}
+
+header h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#addEmployeeBtn {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addEmployeeBtn:hover {
+  background-color: #218838;
+}
+
+/* ===== CONTROLS BAR (Under Navbar) ===== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cce0f5;
+  padding: 12px 20px;
+  gap: 10px;
+}
+
+.controls input,
+.controls select,
+.controls button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+}
+
+.controls button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.show-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.controls button:hover {
+  background-color: #0056b3;
+}
+
+/* ===== EMPLOYEE LIST (Flex Layout) ===== */
+.employee-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+/* ===== EMPLOYEE CARD ===== */
+.employee-card {
+  flex: 1 1 260px;
+  max-width: 300px;
+  min-width: 260px;
+  background-color: #ffffff;
+  border-left: 5px solid #007bff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.employee-card:hover {
+  transform: translateY(-5px);
+}
+
+.employee-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.employee-card p {
+  font-size: 14px;
+  margin: 3px 0;
+  font-weight: 400;
+}
+.employee-card strong {
+  color: #333;
+}
+
+.employee-card button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #117a8b;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* ===== PAGINATION ===== */
+#paginationControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 8px;
+}
+
+#paginationControls button {
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#paginationControls button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+#paginationControls button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* ===== FILTER MODAL ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #005b96;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.modal-buttons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#applyFilterBtn {
+  background-color: #007bff;
+  color: white;
+}
+
+#clearFilterBtn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+}
+
+/* ===== NAVBAR TOP ===== */
+.navbar {
+  background-color: #004080;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  flex-wrap: wrap;
+}
+
+.nav-left h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-center input {
+  padding: 8px 14px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  width: 280px;
+}
+
+.nav-right button {
+  background-color: #0687ff;
+  border: none;
+  padding: 8px 14px;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-right button:hover {
+  background-color: #218838;
+}
+
+/* ===== BOTTOM NAVBAR CONTROLS ===== */
+.bottom-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2px 12px;
+  background-color: #cce0f5;
+  border-bottom: 1px solid #bbb;
+}
+
+.bottom-controls > div {
+  margin: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bottom-controls label {
+  font-weight: bold;
+}
+
+.bottom-controls select {
+  padding: 6px 1px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* ===== FOOTER ===== */
+footer.app-footer {
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+
+/* ===== ADD/EDIT FORM STYLING ===== */
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #444;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* ===== FORM BUTTONS ===== */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.form-buttons button {
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#saveBtn {
+  background-color: #28a745;
+  color: white;
+}
+
+#cancelBtn {
+  background-color: #6c757d;
+  color: white;
+}
+
+#saveBtn:hover {
+  background-color: #218838;
+}
+
+#cancelBtn:hover {
+  background-color: #495057;
+}
+
+/* ===== FOOTER ===== */
+footer.app-footer {
+  background-color: #3c5368c5;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  font-size: 16px;
+  margin-top: 180px;
+  width: 100%;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #addEmployeeBtn {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .employee-card {
+    padding: 12px;
+  }
+
+  .employee-card h3 {
+    font-size: 16px;
+  }
+
+  .employee-card p {
+    font-size: 13px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .form-buttons button {
+    width: 100%;
+  }
+}
