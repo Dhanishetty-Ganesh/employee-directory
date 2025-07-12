@@ -1,4 +1,4 @@
-const mockEmployees = [
+window.mockEmployees = [
   {
     id: 1,
     firstName: "Ganesh",
@@ -24,14 +24,13 @@ const mockEmployees = [
     role: "Manager",
   },
 ];
-
 function getStoredEmployees() {
   const stored = localStorage.getItem("employees");
   if (stored) {
     return JSON.parse(stored);
   } else {
-    // Save mock data to localStorage on first load
-    localStorage.setItem("employees", JSON.stringify(mockEmployees));
-    return mockEmployees;
+    const mock = window.mockEmployees || [];
+    localStorage.setItem("employees", JSON.stringify(mock));
+    return mock;
   }
 }
