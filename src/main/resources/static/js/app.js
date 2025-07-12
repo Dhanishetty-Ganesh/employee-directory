@@ -36,39 +36,32 @@ function renderEmployees(data) {
     const card = document.createElement("div");
     card.className = "employee-card";
 
-    // Name
     const name = document.createElement("h3");
     name.textContent = `${emp.firstName} ${emp.lastName}`;
     card.appendChild(name);
 
-    // ID
     const id = document.createElement("p");
     id.innerHTML = `<strong>ID:</strong> ${emp.id}`;
     card.appendChild(id);
 
-    // Email
     const email = document.createElement("p");
     email.innerHTML = `<strong>Email:</strong> ${emp.email}`;
     card.appendChild(email);
 
-    // Department
     const dept = document.createElement("p");
     dept.innerHTML = `<strong>Department:</strong> ${emp.department}`;
     card.appendChild(dept);
 
-    // Role
     const role = document.createElement("p");
     role.innerHTML = `<strong>Role:</strong> ${emp.role}`;
     card.appendChild(role);
 
-    // Edit Button
     const editBtn = document.createElement("button");
     editBtn.className = "edit-btn";
     editBtn.textContent = "Edit";
     editBtn.onclick = () => handleEdit(emp.id);
     card.appendChild(editBtn);
 
-    // Delete Button
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete-btn";
     deleteBtn.textContent = "Delete";
@@ -80,7 +73,6 @@ function renderEmployees(data) {
 
   renderPagination(data.length);
 }
-
 
 // -------------------- Pagination --------------------
 function renderPagination(totalItems) {
@@ -110,11 +102,11 @@ function handleDelete(id) {
 }
 
 function handleEdit(id) {
-  window.location.href = `add-edit-form.html?editId=${id}`;
+  window.location.href = `./add-edit-form.html?editId=${id}`;
 }
 
 function redirectToAddForm() {
-  window.location.href = "add-edit-form.html";
+  window.location.href = "./add-edit-form.html";
 }
 
 // -------------------- Search / Sort / Filter --------------------
@@ -256,11 +248,11 @@ if (employeeForm) {
     saveToLocalStorage(employees);
 
     alert("Saved successfully!");
-    window.location.href = "dashboard.html";
+    window.location.href = "./index.html";
   });
 
   document.getElementById("cancelBtn").addEventListener("click", () => {
-    window.location.href = "dashboard.html";
+    window.location.href = "./index.html";
   });
 }
 
@@ -276,4 +268,14 @@ function validateForm(emp) {
     return false;
   }
   return true;
+}
+
+// -------------------- Local Storage Utility --------------------
+function saveToLocalStorage(data) {
+  localStorage.setItem("employees", JSON.stringify(data));
+}
+
+function getStoredEmployees() {
+  const stored = localStorage.getItem("employees");
+  return stored ? JSON.parse(stored) : [];
 }
