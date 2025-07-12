@@ -75,7 +75,7 @@ When the dashboard loads, it first checks localStorage and uses that if availabl
 
 This simulates real-time data persistence without needing a backend.
 
-Freemarker Integration 
+Freemarker Integration (Optional)
 Files like dashboard.ftlh and add-edit-form.ftlh are available to simulate server-rendered pages using Spring Boot + Freemarker.
 
 You can render these with a minimal Spring Boot backend by mapping the templates using a ModelAndView.
@@ -90,17 +90,4 @@ Flexbox & CSS Grid
 Freemarker template engine (optional)
 
 LocalStorage for persistence
-
-Future Enhancements
-Add backend integration (Node.js or Spring Boot)
-
-Add employee photo upload
-
-Export employee data to Excel/PDF
-
-Authentication for role-based access (Admin, HR, etc.)
-
-Author
-Ganesh
-Developer and UI/Frontend Engineer
 
