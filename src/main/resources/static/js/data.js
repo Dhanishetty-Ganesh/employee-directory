@@ -1,4 +1,3 @@
-// data.js
 const mockEmployees = [
   {
     id: 1,
@@ -20,17 +19,19 @@ const mockEmployees = [
     id: 3,
     firstName: "Sam",
     lastName: "Richard",
-    email: "sama@example.com",
+    email: "sam@example.com",
     department: "HR",
     role: "Manager",
   },
 ];
 
 function getStoredEmployees() {
-  const fromStorage = localStorage.getItem("employeeData");
-  return fromStorage ? JSON.parse(fromStorage) : mockEmployees;
-}
-
-function saveToLocalStorage(data) {
-  localStorage.setItem("employeeData", JSON.stringify(data));
+  const stored = localStorage.getItem("employees");
+  if (stored) {
+    return JSON.parse(stored);
+  } else {
+    // Save mock data to localStorage on first load
+    localStorage.setItem("employees", JSON.stringify(mockEmployees));
+    return mockEmployees;
+  }
 }
