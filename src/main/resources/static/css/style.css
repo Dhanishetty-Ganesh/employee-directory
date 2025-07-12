@@ -388,6 +388,7 @@ footer.app-footer {
 #cancelBtn {
   background-color: #6c757d;
   color: white;
+  padding:2px;
 }
 
 #saveBtn:hover {
