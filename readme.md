@@ -1,106 +1,91 @@
-Employee Directory App
-The Employee Directory App is a responsive and functional employee management dashboard built using HTML, CSS, and Vanilla JavaScript. It allows users to view, add, edit, delete, search, sort, and filter employee records, with support for pagination and a professional UI.
+# 📘 Employee Directory App
 
-Features
-Role-based interface using local mock data
+A responsive and fully functional **Employee Management Dashboard** built using **HTML**, **CSS**, and **Vanilla JavaScript**. The app allows users to **view**, **add**, **edit**, **delete**, **search**, **sort**, and **filter** employee records. It supports **pagination**, **localStorage-based data persistence**, and comes with optional **Freemarker templates** for server-side rendering simulation.
 
-Search employees by name or email
+---
 
-Sort by first name or department
+## 🚀 Features
 
-Filter by name, department, or role using a modal
+- 🔍 Search employees by **name** or **email**
+- 🔃 Sort employees by **first name** or **department**
+- 🎯 Filter by **first name**, **department**, or **role** using a modal popup
+- ➕ Add new employees via a **dedicated form**
+- ✏️ Edit existing employee details
+- 🗑️ Delete employees with confirmation
+- 📄 Pagination with selectable items per page (**10, 25, 50, 100**)
+- 💾 LocalStorage-based data saving
+- 📱 Responsive layout for desktop & mobile screens
+- 🎨 Clean, light-blue themed UI using **Flexbox** and **CSS Grid**
+- 📌 Footer section with copyright
+- 🧩 Freemarker template support for backend simulation
 
-Add new employees using a clean form
+---
 
-Edit existing employee details
+## 🗂️ Project Structure
 
-Delete employees with confirmation
-
-Pagination with selectable items per page (10, 25, 50, 100)
-
-Responsive layout for desktop and mobile
-
-Light-blue themed UI with card layout and form styling
-
-Footer section with copyright
-
-Project Structure
-php
-Copy
-Edit
-project-root/
-├── dashboard.html               # Main dashboard page (uses localStorage + JS)
-├── add-edit-form.html          # Add/Edit form page
+employee-directory/
+├── dashboard.html # Main dashboard
+├── add-edit-form.html # Add/Edit form
 ├── src/
-│   └── main/
-│       └── resources/
-│           └── static/
-│               ├── css/
-│               │   └── style.css           # All styles
-│               ├── js/
-│               │   ├── app.js              # Main JS logic for dashboard & form
-│               │   └── data.js             # Mock data for employees
-│               └── templates/
-│                   ├── dashboard.ftlh      # Freemarker dashboard template
-│                   └── add-edit-form.ftlh  # Freemarker form template
-How It Works
-The app uses mock data (mockEmployees array) from data.js.
+│ └── main/
+│ └── resources/
+│ └── static/
+│ ├── css/
+│ │ └── style.css # App styling
+│ ├── js/
+│ │ ├── app.js # Main JS logic
+│ │ └── data.js # Initial mock employee data
+│ └── templates/
+│ ├── dashboard.ftlh # Freemarker dashboard template
+│ └── add-edit-form.ftlh # Freemarker form template
 
-When employees are added or updated, the data is also saved to localStorage for persistence across reloads.
+---
 
-The Freemarker templates (.ftlh) simulate rendering via a backend system like Spring Boot.
+## 💡 How It Works
 
-All operations (search, filter, pagination, etc.) are done client-side using JavaScript.
+- The app uses an array called `mockEmployees` defined in `data.js`.
+- On page load, data is loaded from `localStorage` (if available).
+- When a new employee is added or edited, the data is stored in `localStorage`.
+- All filtering, sorting, searching, and pagination is done **client-side using JavaScript**.
+- If using a backend, you can render `.ftlh` templates via **Spring Boot + Freemarker**.
 
-Running the Project
-Clone the repository:
+---
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/employee-directory.git
-cd employee-directory
-Open the dashboard.html file in your browser.
+## 💾 LocalStorage Integration
 
-Click the "+ Add Employee" button to go to the form.
+- When users **submit** the form (Add/Edit), employee data is stored in `localStorage`.
+- On page load (`dashboard.html`), the app checks `localStorage` first.
+- This gives the illusion of real-time persistence **without a backend**.
 
-Submit a new employee or edit existing ones.
+---
 
-Use the filters, sort dropdown, and search to interact with the list.
+## 🧪 How to Run
 
-LocalStorage Support
-On every form submission (add or edit), data is stored in localStorage.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/employee-directory.git
+   cd employee-directory
+Open in browser
 
-When the dashboard loads, it first checks localStorage and uses that if available.
+Open dashboard.html in any modern browser.
 
-This simulates real-time data persistence without needing a backend.
+Use the app
 
-Freemarker Integration 
-Files like dashboard.ftlh and add-edit-form.ftlh are available to simulate server-rendered pages using Spring Boot + Freemarker.
+Click + Add Employee to add a new employee.
 
-You can render these with a minimal Spring Boot backend by mapping the templates using a ModelAndView.
+Use the form to input details.
 
-Technologies Used
-HTML5 and CSS3
+Click Edit or Delete on any employee card.
 
-Vanilla JavaScript (ES6+)
+Use the search bar, sort dropdown, and filter modal to navigate the list.
 
-Flexbox & CSS Grid
+🧰 Technologies Used
+✅ HTML5 & CSS3
 
-Freemarker template engine (optional)
+✅ JavaScript (ES6+)
 
-LocalStorage for persistence
+✅ Flexbox & CSS Grid
 
-Future Enhancements
-Add backend integration (Node.js or Spring Boot)
+✅ localStorage for persistent state
 
-Add employee photo upload
-
-Export employee data to Excel/PDF
-
-Authentication for role-based access (Admin, HR, etc.)
-
-Author
-Ganesh
-Developer and UI/Frontend Engineer
-
+✅ Freemarker (.ftlh) templates 
