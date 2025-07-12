@@ -275,7 +275,3 @@ function saveToLocalStorage(data) {
   localStorage.setItem("employees", JSON.stringify(data));
 }
 
-function getStoredEmployees() {
-  const stored = localStorage.getItem("employees");
-  return stored ? JSON.parse(stored) : [];
-}
